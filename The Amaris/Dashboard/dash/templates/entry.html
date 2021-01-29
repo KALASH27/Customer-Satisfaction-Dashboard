@@ -1,0 +1,169 @@
+{% extends 'basic.html' %}
+{%block title%}New Entry{%endblock%}
+{%block body%}
+{%for message in messages%}
+<div class="container alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>Message:</strong> {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{%endfor%}
+<div class="container content-wrapper">
+    <form class="row g-3 my-3" action="adddata" method="post">{% csrf_token %}
+      <div class="col-md-3">
+        <label for="inputname" class="form-label">Customer Name</label>
+        <input name="cus_name" type="text" class="form-control" id="inputname" required>
+      </div>
+      <div class="col-md-3">
+        <label for="inputcheckin" class="form-label">Checkin Date</label>
+        <input name="checkin" type="date" class="form-control" id="inputcheckin">
+      </div>
+      <div class="col-md-3">
+        <label for="inputcheckout" class="form-label">Check Out Date</label>
+        <input name="checkout" type="date" class="form-control" id="inputcheckout">
+      </div>
+      <div class="col-md-3 my-4">
+          <div class="form-group">
+              <label for="exampleFormeoob">Ease of online booking</label>
+              <select name ='eoob' class="form-control form-fill" id="exampleFormeoob">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+              </select>
+          </div>
+      </div>
+      <div class="col-md-3 my-4">
+          <div class="form-group">
+              <label for="exampleFormws">Hotel wifi Service</label>
+              <select name ='ws' class="form-control form-fill" id="exampleFormws">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+              </select>
+          </div>
+      </div>
+      <div class="col-md-3 my-4">
+          <div class="form-group">
+              <label for="exampleFormfd">Food and Drinks</label>
+              <select name ='fd' class="form-control form-fill" id="exampleFormfd">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+              </select>
+          </div>
+      </div>
+      <div class="col-md-3 my-4">
+          <div class="form-group">
+              <label for="exampleFormdas">Departure/Arrival Services</label>
+              <select name ='das' class="form-control form-fill" id="exampleFormdas">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+              </select>
+          </div>
+      </div>
+      <div class="col-md-3 my-4">
+          <div class="form-group">
+              <label for="exampleForminout">Check in and Check out Services</label>
+              <select name ='inout' class="form-control form-fill" id="exampleForminout">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+              </select>
+          </div>
+      </div>
+      <div class="col-md-3 my-4">
+          <div class="form-group">
+              <label for="exampleFormclean">Cleanliness</label>
+              <select name ='clean' class="form-control form-fill" id="exampleFormclean">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+              </select>
+          </div>
+      </div>
+      <div class="col-md-3 my-4">
+          <div class="form-group">
+              <label for="exampleFormos">Other Services</label>
+              <select name ='os' class="form-control form-fill" id="exampleFormos">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+              </select>
+          </div>
+      </div>
+      <div class="col-md-3 my-4">
+          <div class="form-group">
+              <label for="exampleFormsat">Satisfaction</label>
+              <select name ='sat' class="form-control form-fill" id="exampleFormsat">
+                  <option>Neutral</option>
+                  <option>Satisfied</option>
+                  <option>Dissatisfied</option>
+                  <option>Highly satisfied</option>
+                  <option>Highly dissatisfied</option>
+              </select>
+          </div>
+      </div>
+      <div class="col-12" align="right">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </form>
+</div>
+{%endblock%}

@@ -1,0 +1,100 @@
+{% extends 'basic.html' %}
+{% block title %}The Amris{% endblock %}
+{% block body %}
+{% load static %}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'assets/css/dash.css' %}">
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap"
+rel="stylesheet"
+/>
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<div class="content-wrapper">
+  {%for message in messages%}
+<div class="container alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>Message:</strong> {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{%endfor%}
+
+  <section  class="full-height bg-img bg-img-fixed align-items-center" id="dasboard-menu" style="background-image: url({% static 'assets/img/emma-matthews-digital-content-production-8K62atzbulQ-unsplash.jpg' %});">
+    <div class="container">
+          <div class="dashboard">
+            <h1>Data Made <span class="primary-color">Impressive.</span></h1>
+            <p>
+              Analyzing with precision , Working to accuracy !
+              Your satisfaction is our aim . Keeping it confidential with your trusted ones.
+            </p>
+            <div class="items-list">
+              <button class="active">Dashboard</button>
+              <a href="entry"><button>New Entry</button></a>
+              <a href="datatable"><button>Data Tables</button></a>
+              <a href="chartjs"><button> Charts</button></a>
+            </div>
+            <div class="dashboard-items-wrap">
+              <div class="dashboard-items">
+                  <div class="items-wrap">
+                    <div class="image">
+                      <a href="entry">
+                      <div class="img bg-img" style="background-image: url({% static 'assets/img/www-hey-beauti-com-KNfLkKoz2Hk-unsplash.jpg' %});"></div>
+                    </div>
+                    <div class="info">
+                      <div>
+                      <h3>New Entry</h3>
+                      </div>
+                      <a href="entry">
+                      <div class="logo"><i class='bx bx-message-square-add bx-md' ></i></div>
+                    </a>
+                    </div>
+                    
+                  </div>
+              </div>
+              <div class="dashboard-items">
+                <div class="items-wrap">
+                  <div class="image">
+                    <div class="img bg-img" style="background-image: url({% static 'assets/img/tables2.jpg' %});"></div>
+                  </div>
+                  <div class="info">
+                    <div>
+                    <h3>Data Tables</h3>
+                    </div>
+                    <a href="datatable">
+                    <div class="logo"><i class='bx bx-table bx-md' ></i></div></a>
+                  </div>
+                  
+                </div>
+            </div>
+            <div class="dashboard-items">
+                  <div class="items-wrap">
+                    <div class="image">
+                      <div class="img bg-img" style="background-image: url({% static 'assets/img/chart.jpg' %});"></div>
+                    </div>
+                    <div class="info">
+                      <div>
+                      <h3>Charts</h3>
+                      </div>
+                      <a href="chartjs">
+                      <div class="logo"><i class='bx bx-pie-chart bx-md' ></i></div></a>
+                    </div>
+                    
+                  </div>
+              </div>
+              
+              
+              
+            </div>
+          </div>
+      </div>
+   
+ </section>
+ 
+</div>
+
+{% endblock %}
