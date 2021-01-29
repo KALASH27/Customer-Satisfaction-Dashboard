@@ -1,0 +1,119 @@
+{% extends 'basic.html' %}
+{% block title %} Data Table {% endblock %}
+{% load static %}
+{% block body %}
+    <!--data table-->
+    <link href="{% static 'assets/vendor/data-tables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+
+    <!--main content wrapper-->
+    <div class="content-wrapper">
+        
+        {%for message in messages%}
+        <div class="container alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        {%endfor%}
+
+        <div class="container-fluid">
+
+            <!--page title-->
+            <div class="page-title mb-4 d-flex align-items-center">
+                <div class="mr-auto">
+                    <h4 class="weight500 d-inline-block pr-3 mr-3 border-right">Data Table</h4>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <!--/page title-->
+            <form action="/dash/deldata" method="GET">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card card-shadow mb-4">
+                        <div class="card-header border-0">
+                            <div class="custom-title-wrap bar-primary">
+                                <div class="custom-title">Datatable</div>                         
+                            </div>
+                            
+                        </div>
+                        <div class="card-body- pt-3 pb-4">
+                            <div class="table-responsive">
+                                <table id="data_table" class="table table-bordered table-striped" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th></th>                                                                                
+                                        <th>Name</th>
+                                        <th>Check in</th>
+                                        <th>Check out</th>
+                                        <th>Satisfaction</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in Res %}
+                                    <tr>
+                                        <th><input type="checkbox" name="ch{{i.id}}"></th>
+                                        <td><a href="viewres{{i.id}}">{{i.Cus_name}}</a></td>
+                                        <td>{{i.Checkin}}</td>
+                                        <td>{{i.Checkout}}</td>
+                                        <td>{{i.Satisfication}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                                    delete
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                Do you really like to delete??
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                <button type="submit" class="btn btn-primary">Yes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+
+        <!--footer-->
+        <footer class="sticky-footer">
+            <div class="container">
+                <div class="text-center">
+                    <small>Copyright &copy; VectorLab 2018</small>
+                </div>
+            </div>
+        </footer>
+        <!--/footer-->
+    </div>
+    <!--/main content wrapper-->
+
+
+    <!--datatables-->
+    <script src="{% static 'assets/vendor/data-tables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/data-tables/dataTables.bootstrap4.min.js' %}"></script>
+
+    <!--init datatable-->
+    <script src="{% static 'assets/vendor/js-init/init-datatable.js' %}"></script>
+
+{% endblock %}

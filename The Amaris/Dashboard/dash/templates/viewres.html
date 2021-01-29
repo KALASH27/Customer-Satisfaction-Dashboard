@@ -1,0 +1,37 @@
+{% extends 'basic.html' %}
+{% block title %} Response {%endblock%}
+{% block body %}
+{% load static %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap"
+        rel="stylesheet"
+        />
+        <link rel="stylesheet" href="{% static 'assets/css/view.css' %}">
+
+        <div class="content-wrapper align-items-center ">
+        <div class="inneritems" style="background-color:#7150C7; color:white; border-radius:3rem;" >RESPONSES</div>
+        <div class="inneritems" >Response of {{res.Cus_name}}</div>
+        <div  class="inneritems">Ease of online booking : {{res.Easeofonlinebooking}}/10 </div>
+        <div  class="inneritems">Hotel wifi Service : {{res.wifi_Service}}/10</div>
+        <div  class="inneritems">Food and Drinks : {{res.FoodDrinks}}/10</div>
+        <div  class="inneritems">Departure/Arrival Convenience : {{res.DepartureArrivalConvinience}}/10</div>
+        <div  class="inneritems">Check in and Check out Service : {{res.Checkinoutservice}}/10</div>
+        <div  class="inneritems">Cleanliness : {{res.Cleanliness}}/10</div>
+        <div  class="inneritems">Other Services : {{res.OtherServices}}/10</div>
+        {% if res.Satisfication == "Neutral" %}
+        <div  class="inneritems">Satisfaction :<span style="color: royalblue;"> {{res.Satisfication}}</span></div>
+        {% elif res.Satisfication == "Satisfied" or res.Satisfication == "Highly Satisfied" or res.Satisfication == "Highly satisfied"%}
+        <div  class="inneritems">Satisfaction : <span style="color: green;"> {{res.Satisfication}}</span></div>
+        {% else %}
+        <div  class="inneritems">Satisfaction : <span style="color: red;"> {{res.Satisfication}}</span></div>
+        {% endif %}
+    
+    
+</div>
+</div>
+
+{%endblock%}

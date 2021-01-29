@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+
+    <title>Login</title>
+
+    <!--bootstrap styles-->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!--custom styles-->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+    </head>
+
+<body class="login-bg">
+{%for message in messages%}
+<div class="container alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>Message:</strong> {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{%endfor%}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 d-lg-flex align-items-center">
+                <!--login form-->
+                <div class="login-form">
+                    <h4 class="text-uppercase text-purple text-center mb-5">Login</h4>
+                    <form action="/hanlogin" method="POST"> {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="uname" class="form-control" id="exampleInputText1" placeholder="Enter username" required>
+                        </div>
+                        <div class="form-group mb-4">
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
+                        </div>
+
+                        <div class="form-group clearfix">
+                            <button type="submit" class="btn btn-purple float-right">LOGIN</button>
+                        </div>
+                    </form>
+                </div>
+                <!--/login form-->
+
+                <!--login promo-->
+                <div class="login-promo basic-gradient  text-white position-relative">
+                    <div class="login-promo-content text-center">
+                        <a href="#" class="mb-4 d-block">
+                            <span class="text-uppercase weight800 text-white f18">THE AMARIS</span>
+                        </a>
+                        <h4 class="text-white">WHERE YOUR SERVICE IS OUR PRIORITY.</h4>
+                    </div>
+                </div>
+                <!--/login promo-->
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<!-- Mirrored from thevectorlab.net/dashlab-v1.3/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Feb 2019 05:41:36 GMT -->
+</html>
